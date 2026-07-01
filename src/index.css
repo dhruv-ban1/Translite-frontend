@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes subtlePulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(253, 118, 26, 0.4); }
+    70% { transform: scale(1.02); box-shadow: 0 0 0 15px rgba(253, 118, 26, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(253, 118, 26, 0); }
+}
+.animate-fade-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+.animate-pulse-subtle {
+    animation: subtlePulse 3s infinite ease-in-out;
+}
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    display: inline-block;
+    vertical-align: middle;
+}
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.industrial-pattern {
+    background-image: radial-gradient(#0f172a 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
+    opacity: 0.05;
+}
+.hex-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='42' viewBox='0 0 24 42' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 0l12 6.928v13.856L12 27.712 0 20.784V6.928L12 0zm0 27.712l12 6.928v13.856l-12 6.928-12-6.928V34.64l12-6.928z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+.product-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+}
+
+/* Custom Scrollbar Styling for Sidebar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1; /* This matches Tailwind's slate-300 */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8; /* This matches Tailwind's slate-400 */
+}
