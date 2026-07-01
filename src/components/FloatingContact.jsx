@@ -3,8 +3,8 @@ import { Phone, MessageCircle } from 'lucide-react';
 
 export default function FloatingContact() {
   // Replace these with your dad's actual business numbers
-  const phoneNumber = "+919876543210"; 
-  const whatsappNumber = "919876543210"; 
+  const phoneNumber = "+919818114506"; 
+  const whatsappNumber = "9818114506"; 
   const whatsappMessage = "Hello, I am interested in your fiberglass products. Can I get a quote?";
 
   return (

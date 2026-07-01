@@ -78,7 +78,7 @@ export default function Footer() {
         {/* Copyright Bar */}
         <div className="pt-8 border-t border-slate-800 text-center text-sm text-slate-500 flex flex-col md:flex-row justify-between items-center gap-4">
           <p>&copy; {new Date().getFullYear()} Translite Fiber Gallery. All rights reserved.</p>
-          <Link to="/admin" className="hover:text-slate-300 transition-colors">Admin Login</Link>
+          <p>Designed & Developed by <a href="https://www.linkedin.com/in/dhruv-bansal-9150b1256/" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-white transition-colors">Dhruv Bansal</a></p>
         </div>
       </div>
     </footer>

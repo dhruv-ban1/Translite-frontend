@@ -106,7 +106,7 @@ export default function Navbar() {
             ))}
             <div className="pt-4 pb-2 border-t border-slate-100 px-4">
               <a
-                href="tel:+919810000000"
+                href="tel:+919818114506" // Replace with your Papa's actual number
                 className="w-full flex items-center justify-center gap-2 bg-slate-950 text-white py-3 rounded-xl font-semibold shadow-sm"
               >
                 <Phone className="w-4 h-4 fill-white" />

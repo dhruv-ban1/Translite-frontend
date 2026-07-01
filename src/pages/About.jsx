@@ -52,10 +52,13 @@ export default function About() {
           
           <div className="relative">
             <div className="aspect-square bg-slate-200 rounded-lg border border-slate-300 shadow-lg relative overflow-hidden group">
-              <img 
-                className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
-                alt="Modern manufacturing facility in Noida" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuArss-GuMS2eINjfUcgUMTXggRIPFDGOBrt780MCeIOg7hzKw0SV4Ccdd7l_eilyTJN6HZrX6GgG4mMxwAhoIPhfIsonsTb3ePBiNPIQ9BdTcdkN6lLBWnF9J8stmvsrqr2bwHNTks-gb4vk8AX52KT9qkG3-2D-wPlPjbxo_FsxXNETksJubOq5r-vivVICXadhoTJCbbpk3c1n5R7nlAiM_voq-ReazRvlIZi5Md08m1_5epURv2po94S3PmQU5ECmFISvfyvrWQ"
+              <video
+                className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
+                src="videos/Shop.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
             </div>
@@ -92,7 +95,7 @@ export default function About() {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-slate-900">Praveen Bansal</h4>
-                  <p className="text-sm font-bold text-orange-600 uppercase tracking-wider mt-1">Owner</p>
+                  <p className="text-sm font-bold text-orange-600 uppercase tracking-wider mt-1">Founder</p>
                 </div>
               </div>
               
@@ -101,12 +104,12 @@ export default function About() {
                   <img 
                     className="object-cover w-full h-full" 
                     alt="Kamlesh Bansal CEO" 
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD222XSAGDSmcn0-EzLo4Jc5Gh7cmCAhV1hWDPXmZW6DSxW6fmosDZUBwCvqFXbo3BWJPiLJqXMF4QI0Mu9Sd4IMyoViZOOEhAge7zx1bIOiSXPz5_ruOIKaS24aKpvJTQusLfKIuGp3JWp-HDhkKCw_i8emb-PO2zs4-QydEf05gK4kglgxnJ_9u2JBKCn_Thk6KPd1__nZiJ_uH2oq3V8CJ8viJOb9mknm7aV_4h0NJ4dMNrKjb_bxHqLEPF110OKReeupN19vOA"
+                    src="catalogues/papa.jpeg"
                   />
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-slate-900">Kamlesh Bansal</h4>
-                  <p className="text-sm font-bold text-orange-600 uppercase tracking-wider mt-1">Chief Executive Officer</p>
+                  <p className="text-sm font-bold text-orange-600 uppercase tracking-wider mt-1">Co-Founder</p>
                 </div>
               </div>
             </motion.div>

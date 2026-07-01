@@ -10,7 +10,7 @@ const groupedCatalogues = [
         id: 'cat-acrylic-1',
         title: 'Premium Acrylic Range 2026',
         description: 'Complete technical specifications, light transmission rates, and fabrication guidelines for clear and tinted acrylic.',
-        coverImage: 'https://images.unsplash.com/photo-1504307651254-35680f356f12?auto=format&fit=crop&q=80&w=600',
+        coverImage: 'catalogues/acrylic.png',
         pdfLink: 'catalogues/ACRYLIC.pdf',
         flipbookLink: 'https://flipbook.so/flip/0QIGL7Yb1WVJ9Geadh4z',
       },
@@ -29,9 +29,9 @@ const groupedCatalogues = [
     items: [
       {
         id: 'Wall-panels-1',
-        title: 'Exterior Wall Panels',
+        title: 'Insulated Exterior Panels',
         description: 'Step-by-step installation instructions, locking mechanisms, and maintenance for WPC fluted panels.',
-        coverImage: 'https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=600',
+        coverImage: 'catalogues/Puffpanel.png',
         pdfLink: 'catalogues/LUXENBLOOMS TRANSLITE PANELS.pdf',
         flipbookLink: 'https://flipbook.so/flip/TonQX0pC1yRCv36BU8BX',
       },
@@ -39,7 +39,7 @@ const groupedCatalogues = [
         id: 'Wall-panels-2',
         title: 'DSPL WPC 4 LINE LOUVERS',
         description: 'Explore the aesthetic and odor-reduction properties of our premium charcoal-infused wall panels.',
-        coverImage: 'https://images.unsplash.com/photo-1588854337221-4cfb69b5c2a3?auto=format&fit=crop&q=80&w=600',
+        coverImage: 'catalogues/dspl4.png',
         pdfLink: 'catalogues/WPC 4 Line pdf.pdf',
         flipbookLink: 'https://flipbook.so/flip/L2Au2Gdcb1zOj0FnWJN6',
       },
@@ -47,9 +47,17 @@ const groupedCatalogues = [
         id: 'Wall-panels-3',
         title: 'DSPL WPC 8 LINE LOUVERS',
         description: 'High-gloss faux marble designs, thickness options, and adhesive recommendations.',
-        coverImage: 'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&q=80&w=600',
+        coverImage: 'catalogues/Dspl8.png',
         pdfLink: 'catalogues/DSPL WPC 8 LINE LOUVERS.pdf (2).pdf',
         flipbookLink: 'https://flipbook.so/flip/RyIDUln8CrVwrGw872XQ',
+      },
+      {
+        id: 'Wall-panels-4',
+        title: 'FRP Decorative Panels',
+        description: 'High-gloss faux marble designs, thickness options, and adhesive recommendations.',
+        coverImage: 'catalogues/FRP.png',
+        pdfLink: 'catalogues/FRP panels.pdf',
+        flipbookLink: 'https://flipbook.so/flip/TOZy62hj1AUk9kbDfilS',
       },
       {
         id: 'Wall-panels-4',
@@ -66,19 +74,19 @@ const groupedCatalogues = [
     items: [
       {
         id: 'cat-decor-1',
-        title: 'PrintWalls Textured Wallpapers',
+        title: 'Darae V series Wallpapers',
         description: 'Our latest imported textured and metallic wallpapers for commercial and residential interiors.',
-        coverImage: 'catalogues/printWall.png',
-        pdfLink: 'https://cdn.excelwallpapers.com/catalogs/pdfs/194/original/Print_Walls.pdf',
-        flipbookLink: 'https://ecatalogues.s3.ap-south-1.amazonaws.com/printwalls/printwalls.html',
+        coverImage: 'catalogues/Darae 5.png',
+        pdfLink: 'https://cdn.excelwallpapers.com/catalogs/pdfs/40/original/Darae_vol_5.pdf',
+        flipbookLink: 'https://ecatalogues.s3.ap-south-1.amazonaws.com/darae_5/darae_5.html',
       },
       {
         id: 'cat-decor-2',
-        title: 'Modena WallPapers',
+        title: 'Novus WallPapers',
         description: 'Installation and maintenance guide for our 3D wall panels, including adhesive recommendations.',
-        coverImage: 'catalogues/2922adb3-7d9b-4e5c-971c-b80ffd957789.png',
-        pdfLink: 'https://cdn.excelwallpapers.com/catalogs/pdfs/195/original/Modena-WP.pdf',
-        flipbookLink: 'https://ecatalogues.s3.ap-south-1.amazonaws.com/modenawp/modenawp.html',
+        coverImage: 'catalogues/Novus.png',
+        pdfLink: 'https://cdn.excelwallpapers.com/catalogs/pdfs/103/original/Novus.pdf',
+        flipbookLink: 'https://ecatalogues.s3.ap-south-1.amazonaws.com/novus/novus.html',
       },
       {
         id: 'cat-decor-3',
@@ -90,11 +98,11 @@ const groupedCatalogues = [
       },
       {
         id: 'cat-decor-4',
-        title: 'Florence Collection Wallpapers',
+        title: 'LUXE Collection Wallpapers',
         description: 'Explore our complete range of imported wallpapers, including metallic, textured, and 3D designs.',
-        coverImage: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&q=80&w=600',
-        pdfLink: 'https://cdn.excelwallpapers.com/catalogs/pdfs/189/original/Florence.pdf',
-        flipbookLink: 'https://ecatalogues.s3.ap-south-1.amazonaws.com/florence/florence.html',
+        coverImage: 'catalogues/Screenshot From 2026-07-02 00-22-20.png',
+        pdfLink: 'https://ecatalogues.s3.ap-south-1.amazonaws.com/Zio_Catalogues/LUXE.pdf',
+        flipbookLink: 'https://ecatalogues.s3.ap-south-1.amazonaws.com/Zio_Catalogues/luxe/luxe.html',
       }
     ]
   }
