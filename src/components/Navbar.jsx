@@ -65,7 +65,7 @@ export default function Navbar() {
           {/* Call to Action Button */}
           <div className="hidden md:flex items-center">
             <a
-              href="tel:+919810000000" // Replace with your Papa's actual number
+              href="tel:+919910346546" // Replace with your Papa's actual number
               className="inline-flex items-center gap-2 bg-slate-950 hover:bg-slate-800 text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-sm transition-all"
             >
               <Phone className="w-4 h-4 fill-white" />

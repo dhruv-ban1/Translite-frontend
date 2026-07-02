@@ -6,7 +6,6 @@ import { products } from '../data/products';
 // Exact categories extracted from the provided screenshot
 const CATEGORIES = [
   "All Categories",
-  "Roofing Sheet",
   "Fiber Sheet",
   "Polycarbonate Sheet",
   "Acrylic Sheet",
@@ -17,12 +16,7 @@ const CATEGORIES = [
   "Charcoal Sheet",
   "UV Marble Sheets",
   "UV Marble Roll",
-  "Fabric Sheet",
-  "Fro Sheet",
-  "HDHMR Board",
-  "Mosaic Tiles",
   "3D Panel",
-  "Wooden Flooring",
   "Artificial Grass"
 ];
 

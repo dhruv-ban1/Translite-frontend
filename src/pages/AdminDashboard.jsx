@@ -12,7 +12,8 @@ export default function AdminDashboard() {
 
   const fetchLeads = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/quotes', {
+      const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${API_BASE_URL}/api/quotes`, {
         method: 'GET',
         credentials: 'include',
       });
@@ -43,7 +44,8 @@ export default function AdminDashboard() {
     if (!id) return;
     const newStatus = currentStatus === 'Pending' ? 'Contacted' : 'Pending';
     try {
-      await fetch(`http://localhost:5000/api/quotes/${id}`, {
+      const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      await fetch(`${API_BASE_URL}/api/quotes/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -57,7 +59,8 @@ export default function AdminDashboard() {
 
   const handleLogout = async () => {
     try {
-      await fetch('http://localhost:5000/api/auth/logout', { 
+      const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      await fetch(`${API_BASE_URL}/api/auth/logout`, { 
         method: 'POST',
         credentials: 'include' 
       });

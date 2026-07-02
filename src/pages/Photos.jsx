@@ -7,45 +7,135 @@ export default function Photos() {
   const [filter, setFilter] = useState('All');
 
   // Gallery Data
+  // Gallery Data
   const galleryPhotos = [
     {
       id: 1,
       category: 'Fabrication',
-      title: 'Industrial Polycarbonate Shed',
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD2VPVjbTYKuHRa_Acx0ZTaRLzy0LRoYMNNCldtMkN4nMuPbAgwiTBsc_MCVmE4Bzy7nsw8vODIwcgJDkb-wssZyniqMWlNT7DqopEB0ejEacIgtBnWMusqSPQqqMzi6Nn65OdJIOGY2vbdd5gcDBnLo8tKN5AZwdEhuinxe00AN1sjm4iXxYekPajUucAyrkYDpDlKLt5G9GU7q2fG7ejrx878PhkX9yHU0WwLE3ncTsmZT-pF8nwf3wIGbrE8oXV3heZfhLrwtpg'
+      title: 'Front Elevation Canopy',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.26.58 AM.jpeg'
     },
     {
       id: 2,
-      category: 'Materials',
-      title: 'Premium Acrylic Sheets',
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDOmXepwGHNN3fyA73bB4GFJ-JdDV06s5MFVmdu4JU0fPlFsmAaXM5qb8GbbNaBTza2cNIsqJtPnfPXgr70C-Zd3ZkOTTLWXiY0L3jStY7znAXDnB1kkl_mBAxgyy1eQz-XpjtvGmMPxR9e8fd_M4hnE_PbRLk7eCD6_peyYkMdbe_mXLG_x9iEaUzkDd0EpzpXpII3K7q18ALdtE7LVbd0KlcG2KYmFN7GTdhlk4g0LBsUmqRItvBGoff2T1fVLFv-6iVg7Kq7aAk'
+      category: 'Fabrication',
+      title: 'Window Awning Structure',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.26.59 AM.jpeg'
     },
     {
       id: 3,
-      category: 'Facility',
-      title: 'Translite Manufacturing Hub',
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuArss-GuMS2eINjfUcgUMTXggRIPFDGOBrt780MCeIOg7hzKw0SV4Ccdd7l_eilyTJN6HZrX6GgG4mMxwAhoIPhfIsonsTb3ePBiNPIQ9BdTcdkN6lLBWnF9J8stmvsrqr2bwHNTks-gb4vk8AX52KT9qkG3-2D-wPlPjbxo_FsxXNETksJubOq5r-vivVICXadhoTJCbbpk3c1n5R7nlAiM_voq-ReazRvlIZi5Md08m1_5epURv2po94S3PmQU5ECmFISvfyvrWQ'
+      category: 'Fabrication',
+      title: 'Curved Dome Framework',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.26.59 AM (1).jpeg'
     },
     {
       id: 4,
-      category: 'Materials',
-      title: 'Corrugated Fiberglass',
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAFQXY3B6T9VASKz-Yj9libU4PSf_-kKc5Y_RXnGebQAmxmwSiwtPj6GgEMdDYddvzW0o4CT3SXDolGmHvC9LFbyHLa_X3-9gekuEy3p3cEmtsJ--SK-K5nusuZbBECB8yDqB0Kk7yuyiOzVs9mWi7VtDoHqEqvGGEU0z1Q3ck0ucOxnxJ8fBb3HIsOamdeotzYWWYwBZLPYGWNfEWwnqBKp-aNB_gTwsJkBjBeQKRdt38qtmX41CbgmVTGutY0eyAl21kS7PCG60g'
+      category: 'Fabrication',
+      title: 'Blue Dome Installation',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.27.00 AM.jpeg'
     },
     {
       id: 5,
-      category: 'Fabrication',
-      title: 'Sports Facility Backboards',
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAwLOZ3rNFSMIysF8h11n460ZPUHsQGNSb7LcxhMBFghNz_aPL-lkDOmrRHgaJpo8hCNR0XzJk2xZ8D_DHjpovqcQLqH7fc_nnXGRr0UHpvuce1TFI3_ba_MYq6ncFwI4XQ7m_2CQX20kL4AFVhesHaVRjknaoanGwc2hMr7h_awy64SZ1rw_ymHRPz2DVETfQbWszZQ0BxBoUwHKz5aqRDJL-33ZwBp3DMD0x5QQkFVlJgweldzIymy-02xdIRHNchkC4H4U1OZbc'
+      category: 'Facility',
+      title: 'Greenhouse Shed Structure',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.27.00 AM (1).jpeg'
     },
     {
       id: 6,
+      category: 'Fabrication',
+      title: 'Large Curved Roof',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.27.00 AM (2).jpeg'
+    },
+    {
+      id: 7,
+      category: 'Fabrication',
+      title: 'Blue Polycarbonate Pool Cover',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.27.01 AM.jpeg'
+    },
+    {
+      id: 8,
+      category: 'Fabrication',
+      title: 'Curved Industrial Canopy',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.27.01 AM (1).jpeg'
+    },
+    {
+      id: 9,
+      category: 'Facility',
+      title: 'Warehouse Interior Roofing',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.27.01 AM (2).jpeg'
+    },
+    {
+      id: 10,
       category: 'Materials',
-      title: 'Multiwall Polycarbonate',
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDPANe9S6eH2SGE-u9K88IHbP3VOV9KUFYxGjGrQw4YyrdLf5kHgdroIZHGEVWxFeokny6yK-IrOWZ-Hs771A5DByONzZf46AgSo1dozgah5-42zUYsHuvNdJbhYoGQm7eM0zTaUgGARj3F6i9SbXQJo5k0XgRZ2tL7wM9Toy8QxxMTGu9GEeFYuklkteYy48Xz3acmVXnfxrvdLGNGdWl1rHE1wHIrYZg6LaPVJ_hruODlJVpYN8sqIjedhHsWHhIVY3lpOiasocs'
+      title: 'Green Patterned Roofing',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.27.01 AM (3).jpeg'
+    },
+    {
+      id: 11,
+      category: 'Fabrication',
+      title: 'Blue Walkway Shelter',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.27.02 AM.jpeg'
+    },
+    {
+      id: 12,
+      category: 'Materials',
+      title: 'Green Stained Glass Canopy',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.27.02 AM (1).jpeg'
+    },
+    {
+      id: 13,
+      category: 'Fabrication',
+      title: 'Walkway Arch Structure',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.27.02 AM (2).jpeg'
+    },
+    {
+      id: 14,
+      category: 'Facility',
+      title: 'Industrial Shed Interior',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.27.03 AM.jpeg'
+    },
+    {
+      id: 15,
+      category: 'Facility',
+      title: 'Factory Roof Framework',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.27.03 AM (1).jpeg'
+    },
+    {
+      id: 16,
+      category: 'Fabrication',
+      title: 'Terrace Pergola Structure',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.28.45 AM.jpeg'
+    },
+    {
+      id: 17,
+      category: 'Fabrication',
+      title: 'Blue Awning Aerial View',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.28.46 AM.jpeg'
+    },
+    {
+      id: 18,
+      category: 'Fabrication',
+      title: 'Skylight Interior Framing',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.28.46 AM (1).jpeg'
+    },
+    {
+      id: 19,
+      category: 'Fabrication',
+      title: 'Geometric Dome Framework',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.28.47 AM.jpeg'
+    },
+    {
+      id: 20,
+      category: 'Materials',
+      title: 'Decorative Shadow Panels',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.28.47 AM (1).jpeg'
+    },
+    {
+      id: 21,
+      category: 'Fabrication',
+      title: 'Circular Skylight Dome',
+      img: '/projects/WhatsApp Image 2026-07-02 at 11.28.47 AM (2).jpeg'
     }
   ];
-
   // Filter the photos based on selected category
   const filteredPhotos = filter === 'All' 
     ? galleryPhotos 

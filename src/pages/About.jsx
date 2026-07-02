@@ -25,33 +25,50 @@ export default function About() {
   return (
     <div className="bg-slate-50 text-slate-900 font-body-md overflow-x-hidden pt-8">
       
-      {/* Hero Section: Our Story */}
+{/* Hero Section: Our Story */}
       <motion.section 
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={fadeUp}
-        className="py-20 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto overflow-hidden"
+        className="py-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto relative overflow-hidden"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className="space-y-8">
-            <div className="inline-flex items-center px-3 py-1 bg-slate-200 text-slate-900 rounded-sm border border-slate-300 font-bold text-sm tracking-wider">
+        {/* --- DESIGNER BACKGROUND ELEMENTS --- */}
+        {/* Massive Watermark Text */}
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-12 text-[10rem] md:text-[18rem] lg:text-[22rem] font-black text-stone-100 select-none pointer-events-none tracking-tighter whitespace-nowrap z-0">
+          1999
+        </div>
+        
+        {/* Subtle Orange Glow on the right side behind the video */}
+        <div className="absolute top-0 right-0 w-[800px] h-full bg-gradient-to-l from-orange-500/10 to-transparent pointer-events-none z-0 blur-3xl"></div>
+        {/* ------------------------------------ */}
+
+        {/* Added 'relative z-10' so the content sits above the watermark */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
+          
+          {/* Left Column: Text Content */}
+          <div className="space-y-8 relative">
+            <div className="inline-flex items-center px-3 py-1 bg-stone-200/60 text-stone-800 rounded-sm border border-stone-300 font-bold text-sm tracking-wider backdrop-blur-sm">
               <span className="mr-2">EST. 1999</span>
               <div className="w-2 h-2 rounded-full bg-orange-600"></div>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+            
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-stone-900">
               Our Story: A Legacy of <span className="text-orange-600">Precision</span>
             </h1>
-            <p className="text-lg text-slate-600 leading-relaxed">
-              Translite Fiber Gallery is a distinguished proprietorship firm that was inaugurated in the year 1999 at Noida, Uttar Pradesh. Under the visionary guidance of our mentor, <span className="font-bold text-slate-900">Praveen Bansal</span>, we have evolved into a cornerstone of the industrial material supply chain.
+            
+            <p className="text-lg text-stone-600 leading-relaxed">
+              Established in 1999 in Noida, Uttar Pradesh, Fiber Gallery began with a singular vision: to elevate modern construction with high-performance materials. Under the visionary leadership of our proprietor, Mr. Praveen Bansal, we have grown from a dedicated local enterprise into a premier manufacturer, trader, and wholesaler in the highly competitive architectural materials industry.            
             </p>
-            <p className="text-base text-slate-600">
-              Our journey began with a simple mission: to provide uncompromising quality in fiber and polycarbonate solutions. Decades later, that commitment remains our structural core, reinforcing every project we touch across the industrial landscape.
+            <p className="text-base text-stone-600 leading-relaxed">
+              As a proud distributor associated with the renowned TranLite brand, we specialize in premium Acrylic Sheets, Carbon Fiber Sheets, and structural Polycarbonate. Beyond supplying top-tier materials, we provide comprehensive end-to-end solutions, including professional Fiber Shed Fabrication Services. From residential cladding to large-scale industrial roofing, we deliver materials engineered for durability and designed for elegance.            
             </p>
           </div>
           
+          {/* Right Column: Video & Floating Box */}
           <div className="relative">
-            <div className="aspect-square bg-slate-200 rounded-lg border border-slate-300 shadow-lg relative overflow-hidden group">
+            {/* Updated borders and shadows to match the warm theme */}
+            <div className="aspect-square bg-stone-100 rounded-[2rem] border border-stone-200 shadow-2xl shadow-stone-200/50 relative overflow-hidden group">
               <video
                 className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
                 src="videos/Shop.mp4"
@@ -60,13 +77,16 @@ export default function About() {
                 muted
                 playsInline
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent"></div>
             </div>
-            <div className="absolute -bottom-8 -left-8 bg-white p-8 border border-slate-200 shadow-xl hidden md:block max-w-xs">
+            
+            {/* Upgraded Floating Stat Card */}
+            <div className="absolute -bottom-8 -left-8 bg-white/95 backdrop-blur-md p-8 rounded-2xl border border-stone-100 shadow-xl shadow-stone-200/60 hidden md:block max-w-xs transition-transform hover:-translate-y-2 duration-500">
               <span className="text-5xl font-extrabold text-orange-600">25+</span>
-              <p className="font-bold text-slate-500 uppercase tracking-widest mt-2 text-sm">Years of Excellence</p>
+              <p className="font-bold text-stone-500 uppercase tracking-widest mt-2 text-sm">Years of Excellence</p>
             </div>
           </div>
+          
         </div>
       </motion.section>
 
@@ -273,31 +293,22 @@ Noida, Uttar Pradesh</p>
             </div>
           </div>
 
-          {/* Google Map Placeholder */}
-          <div className="lg:col-span-3 h-[600px] bg-slate-200 border border-slate-300 rounded-xl relative overflow-hidden group shadow-md">
-            <div className="absolute inset-0 opacity-80 mix-blend-multiply">
-              <img 
-                className="w-full h-full object-cover" 
-                alt="Map of Noida" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2VPVjbTYKuHRa_Acx0ZTaRLzy0LRoYMNNCldtMkN4nMuPbAgwiTBsc_MCVmE4Bzy7nsw8vODIwcgJDkb-wssZyniqMWlNT7DqopEB0ejEacIgtBnWMusqSPQqqMzi6Nn65OdJIOGY2vbdd5gcDBnLo8tKN5AZwdEhuinxe00AN1sjm4iXxYekPajUucAyrkYDpDlKLt5G9GU7q2fG7ejrx878PhkX9yHU0WwLE3ncTsmZT-pF8nwf3wIGbrE8oXV3heZfhLrwtpg"
-              />
-            </div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded-xl shadow-2xl border border-orange-600">
-              <div className="flex flex-col items-center gap-2">
-                <MapPin className="text-orange-600 w-10 h-10 animate-bounce" />
-                <span className="font-bold text-slate-900 text-sm whitespace-nowrap">Translite Fiber Gallery</span>
-              </div>
-            </div>
+{/* Interactive Google Map */}
+{/* Interactive Google Map */}
+          <div className="lg:col-span-3 h-[600px] bg-stone-100 border border-stone-200 rounded-[2rem] relative overflow-hidden group shadow-xl shadow-stone-200/50">
             
-            {/* Map Controls */}
-            <div className="absolute bottom-6 right-6 flex gap-2">
-              <button className="bg-white w-10 h-10 flex items-center justify-center rounded border border-slate-200 shadow-md hover:bg-slate-50 transition-colors text-slate-700">
-                <Plus className="w-5 h-5" />
-              </button>
-              <button className="bg-white w-10 h-10 flex items-center justify-center rounded border border-slate-200 shadow-md hover:bg-slate-50 transition-colors text-slate-700">
-                <Minus className="w-5 h-5" />
-              </button>
-            </div>
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3485.3603296474885!2d77.32553580673778!3d28.588013806658292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce456759e3987%3A0x87aa44eac11cddf3!2sFiber%20Gallery!5e0!3m2!1sen!2sin!4v1783000020303!5m2!1sen!2sin"
+              className="absolute inset-0 w-full h-full grayscale-[20%] contrast-125 opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+              style={{ border: 0 }} 
+              allowFullScreen="" 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Translite Fiber Location"
+            ></iframe>
+            
+            {/* Warm overlay that fades away when the user hovers over the map */}
+            <div className="absolute inset-0 bg-orange-900/5 pointer-events-none group-hover:bg-transparent transition-colors duration-500"></div>
           </div>
 
         </div>
