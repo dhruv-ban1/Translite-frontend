@@ -110,7 +110,7 @@ export default function About() {
                   <img 
                     className="object-cover w-full h-full" 
                     alt="Kamlesh Bansal CEO" 
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD222XSAGDSmcn0-EzLo4Jc5Gh7cmCAhV1hWDPXmZW6DSxW6fmosDZUBwCvqFXbo3BWJPiLJqXMF4QI0Mu9Sd4IMyoViZOOEhAge7zx1bIOiSXPz5_ruOIKaS24aKpvJTQusLfKIuGp3JWp-HDhkKCw_i8emb-PO2zs4-QydEf05gK4kglgxnJ_9u2JBKCn_Thk6KPd1__nZiJ_uH2oq3V8CJ8viJOb9mknm7aV_4h0NJ4dMNrKjb_bxHqLEPF110OKReeupN19vOA"
+                    src="logos/chachu.jpeg"
                   />
                 </div>
                 <div>
@@ -261,7 +261,7 @@ Noida, Uttar Pradesh</p>
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900 mb-1">GST Number</h4>
-                  <p className="text-sm font-mono text-slate-600">09XXXXXXXXXXXXX</p>
+                  <p className="text-sm font-mono text-slate-600">09ASGPB8927R1ZY</p>
                 </div>
               </div>
             </div>

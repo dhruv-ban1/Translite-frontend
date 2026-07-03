@@ -36,8 +36,9 @@ export default function Contact() {
             // 2. Map the frontend 'phone' to the backend 'mobileNumber'
             mobileNumber: formData.phone, 
             
+            email: formData.email, // Optional email field
             // 3. Combine the email and message into the required 'requirement' field so you don't lose the email data!
-            requirement: `Email: ${formData.email || 'Not provided'} | Message: ${formData.message}` 
+            requirement: `Message: ${formData.message}` 
         }),
       });
 
@@ -102,7 +103,7 @@ export default function Contact() {
 
             {/* Phone (Clickable to dial) */}
             <a 
-              href="tel:+919876543210" 
+              href="tel:+919910346546" 
               className="group block bg-white p-6 rounded-2xl border border-stone-100 shadow-xl shadow-stone-200/40 flex items-start gap-5 hover:-translate-y-1 hover:border-orange-200 transition-all duration-300"
             >
               <div className="bg-stone-100 p-3.5 rounded-xl text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-colors duration-300 shadow-sm shrink-0">
@@ -134,13 +135,14 @@ export default function Contact() {
 
             {/* Business Hours (Static) */}
             <div className="bg-white p-6 rounded-2xl border border-stone-100 shadow-xl shadow-stone-200/40 flex items-start gap-5">
-              <div className="bg-stone-100 p-3.5 rounded-xl text-stone-600 shadow-sm shrink-0">
+              <div className="bg-stone-100 p-3.5 rounded-xl text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-colors duration-300 shadow-sm shrink-0">
                 <Clock className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="font-bold text-stone-900 text-lg">Business Hours</h3>
+                <h3 className="font-bold text-stone-900 text-lg group-hover:text-orange-600 transition-colors">Business Hours</h3>
                 <p className="text-stone-600 text-sm mt-1.5 leading-relaxed">
-                  Monday - Saturday<br />9:00 AM - 6:30 PM<br />Sunday: 9:00 AM - 1:00 PM
+                  <strong>Monday - Saturday:</strong> 10:00 AM - 8:00 PM<br />
+                  <strong>Sunday:</strong> 10:00 AM - 4:00 PM
                 </p>
               </div>
             </div>

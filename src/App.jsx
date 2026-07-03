@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Contact from './pages/Contact';
 import FloatingContact from './components/FloatingContact';
 import Navbar from './components/Navbar';
+import HeroCarousel from './components/HeroCarousel';
 import Footer from './components/Footer';
 import QuoteModal from './components/QuoteModal';
 
@@ -69,6 +70,9 @@ function App() {
         
         {/* Global Navbar */}
         <Navbar onActionClick={() => openQuoteModal('General Inquiry')} />
+
+        {/* Hero Section */}
+        {/* <HeroCarousel /> */}
         
         {/* Main Content Area */}
         <main className="flex-grow">

@@ -11,7 +11,7 @@ export default function Navbar() {
     { name: 'Home', path: '/' },
     { name: 'Products', path: '/products' },
     { name: 'e-Catalogues', path: '/catalogues' },
-    { name: 'Our Portfolio', path: '/photos' },
+    { name: 'Projects', path: '/photos' },
     { name: 'About Us', path: '/about' },
     {name : 'Contact', path : '/contact'},
   ];
@@ -27,8 +27,12 @@ export default function Navbar() {
           {/* Logo / Branding Section */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-2 group">
+            <img src="catalogues/Logo.jpeg" 
+            alt="Fiber Gallery Logo"
+            className="w-12 h-12 object-contain transition-transform duration-300 group-hover:scale-110"
+            />
               <div className="bg-brand/10 p-2 rounded-xl text-brand group-hover:bg-brand group-hover:text-white transition-all duration-300">
-                <Layers className="w-6 h-6" />
+                {/* <Layers className="w-6 h-6" /> */}
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-slate-950 tracking-tight leading-tight">
@@ -106,7 +110,7 @@ export default function Navbar() {
             ))}
             <div className="pt-4 pb-2 border-t border-slate-100 px-4">
               <a
-                href="tel:+919818114506" // Replace with your Papa's actual number
+                href="tel:+919910346546" // Replace with your Papa's actual number
                 className="w-full flex items-center justify-center gap-2 bg-slate-950 text-white py-3 rounded-xl font-semibold shadow-sm"
               >
                 <Phone className="w-4 h-4 fill-white" />

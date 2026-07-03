@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ShieldCheck, Send } from 'lucide-react';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function QuoteModal({ isOpen, onClose, selectedProduct }) {
   const [formData, setFormData] = useState({
     name: '',
     mobileNumber: '',
+    email: '',
     requirement: selectedProduct || '',
   });
 
+  // const [captchaToken, setCaptchaToken] = useState(null);
   // Automatically update the requirement if the user changes the clicked product
   React.useEffect(() => {
     if (selectedProduct) {
@@ -19,29 +22,37 @@ export default function QuoteModal({ isOpen, onClose, selectedProduct }) {
 const handleSubmit = async (e) => {
     e.preventDefault();
     
+    // ADD THIS: Stop the user if they haven't checked the box!
+    if (!captchaToken) {
+      alert("Please check the 'I am not a robot' box before submitting.");
+      return; 
+    }
+    
     try {
-      // THIS IS THE CONNECTION TO THE BACKEND
       const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
       const response = await fetch(`${API_BASE_URL}/api/quotes`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, captchaToken }),
       });
 
       if (response.ok) {
         alert(`Thank you ${formData.name}! Your request has been logged.`);
-        setFormData({ name: '', mobileNumber: '', requirement: '' });
+        setFormData({ name: '', mobileNumber: '', email: '', requirement: '' });
+        setCaptchaToken(null); // ADD THIS: Reset the captcha state after success
         onClose();
       } else {
-        alert("The server rejected the request. Check your backend terminal.");
+        // Now we can actually read the exact error message your backend sends!
+        const errorData = await response.json();
+        alert(`Error: ${errorData.message}`);
       }
     } catch (error) {
       console.error("Frontend failed to connect to backend:", error);
       alert("Network error. Is your Node server running on port 5000?");
     }
-  };
+};
   
   return (
     <AnimatePresence>
@@ -100,6 +111,19 @@ const handleSubmit = async (e) => {
 
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
+                  Email Address
+                </label>
+                <input 
+                  type="email"
+                  placeholder="e.g., ashok@example.com"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-600 transition-all text-sm"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
                   Mobile Number*
                 </label>
                 <div className="relative">
@@ -135,9 +159,15 @@ const handleSubmit = async (e) => {
               {/* Trust Factor info */}
               <div className="flex items-center gap-2 text-xs text-slate-500 bg-slate-50 p-3 rounded-xl border border-slate-100">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Your requirement is securely sent directly to Praveen Bansal (Proprietor).</span>
+                <span>Your requirement will be securely sent directly to Praveen Bansal (Proprietor).</span>
               </div>
-
+              {/* reCAPTCHA */}
+              {/* <div className="my-4">
+                <ReCAPTCHA
+                  sitekey="6LeE7kItAAAAAAJyWlqxu5TLHyT6VyK_dFDGLgPv"
+                  onChange={(token) => setCaptchaToken(token)}
+                />
+              </div> */}
               <button 
                 type="submit"
                 className="w-full flex items-center justify-center gap-2 bg-slate-950 hover:bg-slate-800 text-white font-semibold py-3.5 rounded-xl shadow-md transition-all active:scale-98 mt-2"
