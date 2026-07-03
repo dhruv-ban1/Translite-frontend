@@ -11,7 +11,11 @@ export default function Footer() {
           
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-extrabold text-white mb-4">Translite<span className="text-orange-500">Fiber</span></h3>
+            <img src="logos/shopLogo.jpeg" 
+            alt="Fiber Gallery Logo"
+            className="w-20 h-25 object-contain transition-transform duration-300 group-hover:scale-110"
+            />
+            {/* <h3 className="text-2xl font-extrabold text-orange-500 mb-4">Fiber Gallery</h3> */}
             <p className="text-sm leading-relaxed mb-6 text-slate-400">
               India's premier manufacturer and distributor of high-performance architectural materials, fiberglass, and polycarbonate solutions.
             </p>
