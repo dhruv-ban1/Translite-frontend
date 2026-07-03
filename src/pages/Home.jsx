@@ -488,22 +488,24 @@ export default function Home() {
             `}
           </style>
 
-          <div className="max-w-[1400px] mx-auto flex items-center">
+{/* Container now strictly uses flex-col to stack heading on top of the logos */}
+          <div className="max-w-[1400px] mx-auto flex flex-col items-center pt-4">
             
-            {/* Left Static Heading */}
-            <div className="w-[300px] shrink-0 z-10 bg-white px-6 md:px-12 py-4 shadow-[10px_0_15px_-10px_rgba(0,0,0,0.1)] relative">
-              <h3 className="text-[28px] font-semibold text-[#00405c] leading-tight uppercase">
-                OUR CLIENTS<br />AND PARTNERS
+            {/* Top Static Heading */}
+            <div className="w-full z-10 bg-white px-6 pb-10 text-center">
+              <h3 className="text-3xl lg:text-4xl font-extrabold text-[#00405c] uppercase">
+                OUR CLIENTS AND PARTNERS
               </h3>
+              {/* Optional: Small accent line for styling */}
+              <div className="w-24 h-1 bg-orange-500 mt-4 mx-auto"></div>
             </div>
             
-            {/* Scrolling Marquee Container */}
-            <div className="flex-grow overflow-hidden relative">
+            {/* Scrolling Marquee Container - Now uses the full width of the screen */}
+            <div className="w-full overflow-hidden relative">
               <div className="animate-marquee-track">
                 
                 {/* 
                   Array containing your exact brand partners and filenames.
-                  We duplicate the array exactly once so the CSS 50% translation creates an infinite loop.
                 */}
                 {[
                   ...[
@@ -535,7 +537,7 @@ export default function Home() {
                   /* Individual Logo Box */
                   <div 
                     key={index} 
-                    className="w-[220px] h-[250px] shrink-0 flex items-center justify-center border border-stone-200 mx-2 bg-white p-6 transition-colors hover:border-orange-500"
+                    className="w-[160px] h-[100px] lg:w-[280px] lg:h-[160px] shrink-0 flex items-center justify-center border border-stone-200 mx-2 bg-white p-3 lg:p-4 transition-colors hover:border-orange-500"
                   >
                     <img 
                       src={`/logos/${partner.file}`} 
@@ -546,7 +548,7 @@ export default function Home() {
                         e.target.nextSibling.style.display = 'block';
                       }}
                     />
-                    <span className="hidden font-bold text-sm text-stone-800 text-center uppercase">
+                    <span className="hidden font-bold text-xs md:text-sm text-stone-800 text-center uppercase">
                       {partner.name}
                     </span>
                   </div>
