@@ -63,6 +63,16 @@ export default function Home() {
       image: "/projects/WhatsApp Image 2026-07-02 at 11.26.58 AM.jpeg",
       title: "INDUSTRIAL FABRICATION EXPERTS",
       subtitle: "Custom canopy and shed solutions designed for your needs."
+    },
+    {
+      image: "/projects/WhatsApp Image 2026-07-02 at 11.28.46 AM (1).jpeg",
+      title: "PREMIUM SHED INSTALLATION",
+      subtitle: "Modern structural fabrication providing architectural elegance and robust weather protection for the main entrance facility."
+    },
+    {
+      image: "https://i.pinimg.com/originals/58/bf/22/58bf228028a372a999ebc591367be3f6.jpg",
+      title: "ELEVATE YOUR SPACES WITH WALL PANELS",
+      subtitle: "Durable and aesthetically pleasing wall panels for both interior and exterior applications."
     }
   ];
 
@@ -243,11 +253,13 @@ export default function Home() {
       </section>
 
       {/* 4. Products Range */}
-      <section className="py-24 bg-[#faf9f6]">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="relative py-28 overflow-hidden bg-gradient-to-b from-orange-50 via-white to-white">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-orange-200/20 blur-[120px] rounded-full"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-amber-200/20 blur-[120px] rounded-full"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-stone-900 mb-4 uppercase tracking-wider">
-              Our Products Range
+            <h2 className="text-5xl font-black tracking-tight text-slate-900">
+            Our Premium Products
             </h2>
             <p className="text-orange-600 text-sm font-bold uppercase tracking-widest mb-4">
               Innovative Solutions, Diverse Products
@@ -287,48 +299,136 @@ export default function Home() {
               {
                 title: "Prefabricated Sheds",
                 desc: "High-performance architectural fabrics designed for custom awnings, canopies, and outdoor shading systems.",
-                img: "projects/WhatsApp Image 2026-07-02 at 11.27.01 AM (2).jpeg" // Placeholder" // Using your canopy image
+                img: "/projects/WhatsApp Image 2026-07-02 at 11.27.01 AM (2).jpeg" // Placeholder" // Using your canopy image
               }
             ].map((product, index) => (
               
               /* Product Card */
-              <div 
-                key={index} 
-                className="bg-white border border-stone-200 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group flex flex-col relative overflow-hidden"
+              <div
+                key={index}
+                className="
+                group
+                relative
+                border border-slate-200
+                overflow-hidden
+                rounded-3xl
+                bg-gradient-to-b
+                from-white
+                to-orange-50/40
+                shadow-[0_20px_60px_rgba(0,0,0,0.08)]
+                hover:shadow-[0_30px_80px_rgba(249,115,22,0.18)]
+                transition-all
+                duration-700
+                hover:-translate-y-3
+              "
               >
-                {/* Animated Top Accent Bar */}
-                <div className="absolute top-0 left-0 w-full h-1 bg-orange-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-20"></div>
-                
-                {/* Image Container */}
-                <div className="h-64 w-full overflow-hidden bg-stone-100 relative">
-                  <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/20 transition-colors duration-500 z-10"></div>
-                  <img 
-                    src={product.img} 
-                    alt={product.title} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+
+                {/* Decorative Glow */}
+                <div className="absolute -top-20 -right-20 w-40 h-40 bg-orange-300/20 rounded-full blur-3xl group-hover:scale-150 transition duration-700"></div>
+
+                {/* Image */}
+                <div className="relative h-72 overflow-hidden">
+
+                  <img
+                    src={product.img}
+                    alt={product.title}
+                    className="
+                    w-full
+                    h-full
+                    object-cover
+                    transition-all
+                    duration-700
+                    group-hover:scale-110
+                    "
                   />
+
+                  {/* Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+
+                  {/* Badge */}
+
+                  {/* <span
+                    className="
+                    absolute
+                    top-5
+                    left-5
+                    px-4
+                    py-2
+                    rounded-full
+                    bg-white/20
+                    backdrop-blur-lg
+                    border
+                    border-white/30
+                    text-white
+                    text-xs
+                    uppercase
+                    tracking-widest
+                    font-semibold
+                    "
+                  >
+                    Premium
+                  </span> */}
+
                 </div>
-                
-                {/* Content Container */}
-                <div className="p-8 text-center flex flex-col flex-grow relative z-10 bg-white">
-                  <h3 className="text-xl font-extrabold text-stone-900 uppercase mb-4">
+
+                {/* Content */}
+
+                <div className="p-8 relative z-10">
+
+                  <h3 className="text-2xl font-bold text-slate-900 mb-4">
                     {product.title}
                   </h3>
-                  
-                  <div className="w-12 h-px bg-stone-300 mx-auto mb-4 group-hover:bg-orange-500 transition-colors duration-300"></div>
-                  
-                  <p className="text-stone-600 mb-8 flex-grow leading-relaxed">
+
+                  <p className="text-slate-600 leading-7 mb-6">
                     {product.desc}
                   </p>
-                  
-                  <Link 
-                    to="/products" 
-                    className="inline-flex items-center justify-center gap-2 border-2 border-stone-900 text-stone-900 font-bold uppercase text-xs tracking-widest py-3 px-6 hover:bg-stone-900 hover:text-white transition-all duration-300 group/btn mt-auto mx-auto w-[80%]"
+
+                  {/* Features */}
+
+                  <div className="flex flex-wrap gap-2 mb-8">
+
+                    <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-semibold">
+                      Durable
+                    </span>
+
+                    <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold">
+                      Premium
+                    </span>
+
+                    <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-semibold">
+                      UV Resistant
+                    </span>
+
+                  </div>
+
+                  {/* Button */}
+
+                  <Link
+                    to="/products"
+                    className="
+                    inline-flex
+                    items-center
+                    gap-3
+                    font-semibold
+                    text-orange-600
+                    group/link
+                    "
                   >
-                    Explore 
-                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    Explore Product
+
+                    <ArrowRight
+                      className="
+                      w-5
+                      h-5
+                      transition-transform
+                      duration-300
+                      group-hover/link:translate-x-2
+                      "
+                    />
                   </Link>
+
                 </div>
+
               </div>
             ))}
           </div>

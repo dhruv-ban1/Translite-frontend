@@ -250,7 +250,7 @@ Noida, Uttar Pradesh</p>
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900 mb-1">Phone</h4>
-                  <p className="text-sm text-slate-600 mb-2">+91 9818114506</p>
+                  <p className="text-sm text-slate-600 mb-2">+91 9910346546 /+91 9818114506</p>
                   <a href="tel:+919818114506" className="text-orange-600 font-bold hover:underline text-sm">Call Now</a>
                 </div>
               </div>
@@ -295,7 +295,7 @@ Noida, Uttar Pradesh</p>
 
 {/* Interactive Google Map */}
 {/* Interactive Google Map */}
-          <div className="lg:col-span-3 h-[600px] bg-stone-100 border border-stone-200 rounded-[2rem] relative overflow-hidden group shadow-xl shadow-stone-200/50">
+          <div className="lg:col-span-3 h-[700px] bg-stone-100 border border-stone-200 rounded-[2rem] relative overflow-hidden group shadow-xl shadow-stone-200/50">
             
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3485.3603296474885!2d77.32553580673778!3d28.588013806658292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce456759e3987%3A0x87aa44eac11cddf3!2sFiber%20Gallery!5e0!3m2!1sen!2sin!4v1783000020303!5m2!1sen!2sin"

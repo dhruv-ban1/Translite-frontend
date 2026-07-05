@@ -37,20 +37,29 @@ const groupedCatalogues = [
       },
       {
         id: 'Wall-panels-2',
-        title: 'DSPL WPC 4 LINE LOUVERS',
+        title: 'WPC 4 LINE LOUVERS',
         description: 'Explore the aesthetic and odor-reduction properties of our premium charcoal-infused wall panels.',
-        coverImage: 'catalogues/dspl4.png',
+        coverImage: 'catalogues/4line.png',
         pdfLink: 'catalogues/WPC 4 Line pdf.pdf',
         flipbookLink: 'https://flipbook.so/flip/L2Au2Gdcb1zOj0FnWJN6',
       },
       {
         id: 'Wall-panels-3',
-        title: 'DSPL WPC 8 LINE LOUVERS',
+        title: 'WPC 8 LINE LOUVERS',
         description: 'High-gloss faux marble designs, thickness options, and adhesive recommendations.',
-        coverImage: 'catalogues/Dspl8.png',
+        coverImage: 'catalogues/Pasted image.png',
         pdfLink: 'catalogues/DSPL WPC 8 LINE LOUVERS.pdf (2).pdf',
         flipbookLink: 'https://flipbook.so/flip/RyIDUln8CrVwrGw872XQ',
       },
+      {
+        id: 'Wall-panels-4',
+        title: 'CANAVA - MIRROR ART Panels',
+        description: 'Explore the aesthetic and odor-reduction properties of our premium charcoal-infused wall panels.',
+        coverImage: 'logos/Canava.png',
+        pdfLink: 'catalogues/CANVA panels-.pdf',
+        flipbookLink: 'https://flipbook.so/flip/3oikXNF4OCRe0aOpyFca',
+      },
+
       {
         id: 'Wall-panels-4',
         title: 'FRP Decorative Panels',

@@ -18,6 +18,7 @@ import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard'; 
 import Catalogues from './pages/Catalogues';
 import ProductDetail from './pages/ProductDetail';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -67,7 +68,7 @@ function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen bg-slate-50">
-        
+        <ScrollToTop />
         {/* Global Navbar */}
         <Navbar onActionClick={() => openQuoteModal('General Inquiry')} />
 
@@ -79,7 +80,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home onCallModal={openQuoteModal} />} />
             <Route path="/products" element={<Products onCallModal={openQuoteModal} />} />
-            <Route path="/products/:id" element={<ProductDetail onCallModal={openQuoteModal} />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/about" element={<About onCallModal={openQuoteModal} />} />
             <Route path="/photos" element={<Photos />} />
             <Route path="/catalogues" element={<Catalogues />} />

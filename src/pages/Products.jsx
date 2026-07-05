@@ -1,184 +1,180 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Search, Inbox } from 'lucide-react';
-import { products } from '../data/products';
+import { Search, ChevronRight } from 'lucide-react';
+import { productsList } from '../data/products';
+import QuoteModal from '../components/QuoteModal';
 
-// Exact categories extracted from the provided screenshot
-const CATEGORIES = [
-  "All Categories",
-  "Fiber Sheet",
-  "Polycarbonate Sheet",
-  "Acrylic Sheet",
-  "PVC Flooring",
-  "PVC Panel",
-  "WPC Louvers",
-  "Charcoal Panel",
-  "Charcoal Sheet",
-  "UV Marble Sheets",
-  "UV Marble Roll",
-  "3D Panel",
-  "Artificial Grass"
-];
-
-export default function Products({ onCallModal }) {
-  const [selectedCategory, setSelectedCategory] = useState("All Categories");
+export default function Products() {
+  const [activeCategory, setActiveCategory] = useState("All Categories");
   const [searchQuery, setSearchQuery] = useState("");
+  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState("");
 
-  // Filtering Logic
-  const filteredProducts = products.filter(product => {
-    const matchesCategory = selectedCategory === "All Categories" || product.category === selectedCategory;
-    const matchesSearch = product.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          product.category.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  // Dynamically generate categories from the data, adding "All Categories" at the top
+  const categories = ["All Categories", ...new Set(productsList.map(item => item.category))];
+
+  // Filter products based on both the active category and the search bar
+  const filteredProducts = useMemo(() => {
+    return productsList.filter(product => {
+      const matchesCategory = activeCategory === "All Categories" || product.category === activeCategory;
+      const matchesSearch = product.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                            product.category.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+  }, [activeCategory, searchQuery]);
+
+  const handleOpenQuote = (productTitle) => {
+    setSelectedProduct(productTitle);
+    setQuoteModalOpen(true);
+  };
 
   return (
-    <div className="bg-slate-50 min-h-screen pt-24 pb-20 font-body-md">
+    <div className="min-h-screen bg-[#f8f9fa] py-12 px-4 sm:px-6 lg:px-8 font-sans">
       
-      {/* Page Header */}
-      <div className="bg-white border-b border-slate-200 mb-8 pb-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-extrabold text-slate-900 mb-4">
-            Product <span className="text-orange-600">Catalogue</span>
-          </h1>
-          <p className="text-lg text-slate-600 max-w-2xl">
-            Browse our comprehensive range of high-performance architectural materials, from structural roofing to decorative interiors.
-          </p>
+      {/* Top Header */}
+      <div className="max-w-7xl mx-auto mb-10">
+        <h1 className="text-4xl font-extrabold text-slate-900 mb-2">
+          Product <span className="text-orange-500">Catalogue</span>
+        </h1>
+        <p className="text-slate-500 text-sm">
+          Browse our comprehensive range of high-performance architectural materials,<br/> 
+          from structural roofing to decorative interiors.
+        </p>
+      </div>
+
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">
+        
+        {/* LEFT SIDEBAR */}
+        <div className="w-full lg:w-72 shrink-0">
+          <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm sticky top-24">
+            <div className="p-5 border-b border-slate-100">
+              <h2 className="font-bold text-slate-900 mb-4">Categories</h2>
+              
+              {/* Search Bar */}
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                <input 
+                  type="text" 
+                  placeholder="Search products..." 
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-9 pr-4 py-2 border border-slate-200 rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
+                />
+              </div>
+            </div>
+
+            {/* Category List */}
+            <ul className="flex flex-col">
+              {categories.map((cat, idx) => (
+                <li key={idx}>
+                  <button
+                    onClick={() => setActiveCategory(cat)}
+                    className={`w-full text-left px-5 py-3 text-sm transition-colors border-l-2 flex justify-between items-center ${
+                      activeCategory === cat
+                        ? "bg-orange-50 text-orange-600 border-orange-500 font-semibold"
+                        : "text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900"
+                    }`}
+                  >
+                    {cat}
+                    {activeCategory === cat && <ChevronRight className="w-4 h-4" />}
+                  </button>
+                  {/* Subtle divider between items */}
+                  {idx !== categories.length - 1 && <div className="h-px bg-slate-100 mx-5" />}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* RIGHT MAIN CONTENT */}
+        <div className="flex-1">
+          
+          {/* Header & Result Count */}
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-xl font-bold text-slate-900">{activeCategory}</h2>
+            <span className="bg-slate-200 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">
+              {filteredProducts.length} Results
+            </span>
+          </div>
+
+          {/* Grid */}
+          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <AnimatePresence>
+              {filteredProducts.map((product) => (
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  key={product.id}
+                  className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col"
+                >
+                  {/* Image Area */}
+                  <div className="h-48 relative overflow-hidden bg-slate-100">
+                    <img 
+                      src={product.image} 
+                      alt={product.title}
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Category Badge overlaying image */}
+                    <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold text-slate-800 uppercase tracking-wider shadow-sm">
+                      {product.category}
+                    </div>
+                  </div>
+
+                  {/* Text Area */}
+                  <div className="p-5 flex flex-col flex-grow">
+                    <h3 className="text-base font-bold text-slate-900 mb-2 leading-tight">
+                      {product.title}
+                    </h3>
+                    <p className="text-xs text-slate-500 mb-6 line-clamp-2">
+                      {product.overview}
+                    </p>
+                    
+                    {/* Action Buttons */}
+                    <div className="mt-auto flex gap-2">
+                      <Link 
+                        to={`/product/${product.id}`}
+                        className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-xs font-bold text-center transition-colors"
+                      >
+                        Details
+                      </Link>
+                      <button 
+                        onClick={() => handleOpenQuote(product.title)}
+                        className="flex-1 bg-[#111827] hover:bg-slate-800 text-white py-2 rounded text-xs font-bold text-center transition-colors"
+                      >
+                        Quote
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Empty State */}
+          {filteredProducts.length === 0 && (
+            <div className="text-center py-20 bg-white rounded-xl border border-slate-200">
+              <p className="text-slate-500 font-medium">No products match your search.</p>
+              <button 
+                onClick={() => { setSearchQuery(""); setActiveCategory("All Categories"); }}
+                className="mt-2 text-orange-500 hover:underline text-sm font-semibold"
+              >
+                Clear all filters
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row gap-10">
-          
-          {/* LEFT SIDEBAR: Categories */}
-          <aside className="w-full lg:w-72 shrink-0">
-            <div className="sticky top-28 bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden flex flex-col max-h-[80vh]">
-              
-              {/* Sidebar Header & Search */}
-              <div className="p-4 border-b border-slate-200 bg-slate-50">
-                <h2 className="font-bold text-slate-900 text-lg mb-4">Categories</h2>
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                  <input 
-                    type="text" 
-                    placeholder="Search products..." 
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-9 pr-4 py-2 bg-white border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-transparent transition-shadow"
-                  />
-                </div>
-              </div>
-
-              {/* Scrollable Category List */}
-              <div className="overflow-y-auto flex-grow custom-scrollbar">
-                <ul className="divide-y divide-slate-100">
-                  {CATEGORIES.map((category) => (
-                    <li key={category}>
-                      <button
-                        onClick={() => setSelectedCategory(category)}
-                        className={`w-full text-left px-5 py-3.5 text-sm font-medium transition-colors flex items-center justify-between group ${
-                          selectedCategory === category 
-                            ? 'bg-orange-50 text-orange-700 border-l-4 border-orange-600' 
-                            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 border-l-4 border-transparent'
-                        }`}
-                      >
-                        {category}
-                        {selectedCategory === category && (
-                          <ChevronRight className="w-4 h-4 text-orange-600" />
-                        )}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </aside>
-
-          {/* RIGHT CONTENT: Product Grid */}
-          <div className="flex-grow">
-            
-            {/* Results Header */}
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-slate-900">
-                {selectedCategory}
-              </h2>
-              <span className="text-sm font-medium text-slate-500 bg-slate-200 px-3 py-1 rounded-full">
-                {filteredProducts.length} Results
-              </span>
-            </div>
-
-            {/* Empty State */}
-            {filteredProducts.length === 0 ? (
-              <div className="bg-white border border-slate-200 rounded-xl p-16 flex flex-col items-center justify-center text-center">
-                <Inbox className="w-16 h-16 text-slate-300 mb-4" />
-                <h3 className="text-lg font-bold text-slate-900 mb-2">No products found</h3>
-                <p className="text-slate-500 max-w-sm">
-                  We are currently updating our inventory for "{selectedCategory}". Please check back soon or contact us for custom orders.
-                </p>
-                <button 
-                  onClick={() => {
-                    setSelectedCategory("All Categories");
-                    setSearchQuery("");
-                  }}
-                  className="mt-6 text-orange-600 font-semibold hover:underline"
-                >
-                  Clear Filters
-                </button>
-              </div>
-            ) : (
-              /* The Grid */
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                {filteredProducts.map((product) => (
-                  <div key={product.id} className="bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
-                    
-                    {/* Image Area */}
-                    <Link to={`/products/${product.id}`} className="relative h-48 overflow-hidden block bg-slate-100">
-                      <img 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                        alt={product.title} 
-                        src={product.image}
-                      />
-                      <span className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded shadow-sm text-[10px] font-bold text-slate-600 tracking-wider uppercase">
-                        {product.category}
-                      </span>
-                    </Link>
-
-                    {/* Content Area */}
-                    <div className="p-5 flex flex-col flex-grow">
-                      <Link to={`/products/${product.id}`}>
-                        <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition-colors line-clamp-1">
-                          {product.title}
-                        </h3>
-                      </Link>
-
-                      <p className="text-slate-600 text-sm mb-6 line-clamp-2 flex-grow">
-                        {product.shortDescription}
-                      </p>
-                      
-                      {/* Action Buttons */}
-                      <div className="mt-auto flex gap-3">
-                        <Link 
-                          to={`/products/${product.id}`}
-                          className="flex-1 text-center bg-slate-100 text-slate-700 font-semibold py-2 rounded-lg hover:bg-slate-200 transition-all text-sm"
-                        >
-                          Details
-                        </Link>
-                        <button 
-                          onClick={() => onCallModal(`Inquiry regarding: ${product.title}`)}
-                          className="flex-1 bg-slate-900 text-white font-semibold py-2 rounded-lg hover:bg-orange-600 transition-all text-sm"
-                        >
-                          Quote
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-        </div>
-      </main>
+      {/* Quote Modal */}
+      <QuoteModal 
+        isOpen={quoteModalOpen} 
+        onClose={() => setQuoteModalOpen(false)} 
+        selectedProduct={selectedProduct} 
+      />
     </div>
   );
 }
